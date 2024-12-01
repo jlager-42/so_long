@@ -16,7 +16,7 @@ int	cleanup_and_exit(t_complete *game)
 
 	line = 0;
 	if (game->winpointer)
-		mlx_destroy_window(game->mlxpointer, game->winpointer);
+		// mlx_destroy_window(game->mlxpointer, game->winpointer);
 	free(game->mlxpointer);
 	while (line < game->heightmap)
 		free(game->map[line++]);
@@ -35,10 +35,10 @@ int	main(int argc, char **argv)
 	check_errors(&game);
 	game.mlxpointer = mlx_init();
 	game.winpointer = mlx_new_window(game.mlxpointer, (game.widthmap * 40),
-			(game.heightmap * 40), "solong");
-	find_graphics(&game);
-	place_graphics(&game);
-	mlx_key_hook(game.winpointer, controls_working, &game);
-	mlx_hook(game.winpointer, 17, 0, cleanup_and_exit, &game);
-	mlx_loop(game.mlxpointer);
+		(game.heightmap * 40), "solong");
+	// find_graphics(&game);
+	// place_graphics(&game);
+	// // mlx_key_hook(game.winpointer, controls_working, &game);
+	// // mlx_hook(game.winpointer, 17, 0, cleanup_and_exit, &game);
+	// // mlx_loop(game.mlxpointer);
 }

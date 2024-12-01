@@ -10,6 +10,7 @@ static int	get_map_width(char *map)
 	return (width);
 }
 
+// This also measures the heightmap
 static int	append_line_to_map(t_complete *game, char *line)
 {
 	char	**temporary;
@@ -40,6 +41,7 @@ int	read_map(t_complete *game, char **argv)
 
     game->fd = open(argv[1], O_RDONLY);
     if (game->fd < 0)
+		ft_printf("\nError: Map file\n")
         return (0);
     while ((readmap = get_next_line(game->fd)) != NULL)
     {

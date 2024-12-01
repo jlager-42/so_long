@@ -41,8 +41,8 @@ static void	check_characters(t_complete *game)
 		game->exitcount != 1 ||
 		game->playercount != 1)
 	{
-		ft_printf("\nError: Invalid map configuration");
-		ft_printf("\nEither player, Exit or collectable Issue\n");
+		ft_printf("\nError: Invalid map configuration
+			\neither Player, Exit or Collectable issue\n");
 		exit_point(game);
 	}
 }
@@ -55,6 +55,7 @@ static int	check_horizontal_walls(t_complete *game)
 	while (width < game->widthmap)
 	{
 		if (game->map[0][width] != '1' || game->map[game->heightmap - 1][width] != '1')
+			ft_printf("\nError: Horizontal wall incomplete\n")
 			return (0);
 		width++;
 	}
@@ -69,6 +70,7 @@ static int	check_vertical_walls(t_complete *game)
 	while (height < game->heightmap)
 	{
 		if (game->map[height][0] != '1' || game->map[height][game->widthmap - 1] != '1')
+			ft_printf("\nError: Verticl wall incomplete\n")
 			return (0);
 		height++;
 	}
