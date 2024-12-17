@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+// delete me test
 void	dealloc(t_list **list, t_list *clean_node, char *buff)
 {
 	t_list	*temporary;
