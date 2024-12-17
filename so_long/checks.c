@@ -1,6 +1,6 @@
 # include "so_long.h"
 
-
+// comment :) delete me
 static void	check_count(t_complete *game, int height, int width)
 {
 	if (game->map[height][width] != '0' &&
