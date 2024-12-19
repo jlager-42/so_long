@@ -1,6 +1,5 @@
 # include "so_long.h"
 
-// comment :) delete me
 static void	check_count(t_complete *game, int height, int width)
 {
 	if (game->map[height][width] != '0' &&
@@ -47,47 +46,40 @@ static void	check_characters(t_complete *game)
 	}
 }
 
-static int	check_horizontal_walls(t_complete *game)
+static int	check_walls(t_complete *game)
 {
+	int	height;
 	int	width;
 
 	width = 0;
 	while (width < game->widthmap)
 	{
 		if (game->map[0][width] != '1' || game->map[game->heightmap - 1][width] != '1')
-			ft_printf("\nError: Horizontal wall incomplete\n")
+		{
+			ft_printf("\nError: Horizontal wall incomplete\n");
 			return (0);
+		}
 		width++;
 	}
-	return (1);
-}
-
-static int	check_vertical_walls(t_complete *game)
-{
-	int	height;
-
 	height = 0;
 	while (height < game->heightmap)
 	{
 		if (game->map[height][0] != '1' || game->map[height][game->widthmap - 1] != '1')
-			ft_printf("\nError: Verticl wall incomplete\n")
+		{
+			ft_printf("\nError: Vertical wall incomplete\n");
 			return (0);
+		}
 		height++;
 	}
+
 	return (1);
 }
 
 void	check_errors(t_complete *game)
 {
-	int	vertical_walls;
-	int	horizontal_walls;
+	int	walls;
 
-	vertical_walls = check_vertical_walls(game);
-	horizontal_walls = check_horizontal_walls(game);
-	if (vertical_walls != 1 || horizontal_walls != 1)
-	{
-		ft_printf("\nError: The map is missing walls\n");
-		exit_point(game);
-	}
+	walls = check_walls(game);
+	if (walls != 1)
 	check_characters(game);
 }
